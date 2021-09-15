@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>
+		<h1>JS EXERCICE (DOM)</h1>
+	</title>
+	<meta charset="utf-8" />
+	<style>
+		* {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		body>div:first-child {
+			width: 1200px;
+			margin: auto
+		}
+
+		fieldset {
+			border: 1px #000000 solid;
+		}
+
+		legend {
+			color: blue;
+		}
+
+		fieldset,
+		fieldset div {
+			margin-bottom: 10px;
+		}
+
+		fieldset,
+		fieldset div,
+		input[type='text'],
+		input[type='password'],
+		select {
+			padding: 10px;
+		}
+
+		input[type='radio'],
+		input[type='checkbox'] {
+			margin-right: 5px;
+			margin-left: 20px;
+			vertical-align: middle;
+		}
+
+		.red {
+			color: red;
+		}
+	</style>
+	</style>
+
+</head>
+
+<body>
+	<div>
+		<h1>JS EXERCICE (DOM)</h1>
+		<!--
+Soit un formulaire:
+. un champ pour saisir un utilisateur
+. un champ pour saisir un mot de passe
+. une liste déroulante pour saisir un profil (1 = admin, 2 = opérateur). Une option (qui vaut -1 et qui demande de sélectionner un profil) est sélectionnée par défaut.
+. des cases à cocher représentant des activités (activité 1, activité 2, javascript, cuisine, football ...). Testez avec au moins 4 ou 5 activités. Rien n'est pré-coché
+. une question "Etes-vous satisfait ?" avec des boutons radios qui proposent les réponses "oui" et "non". Rien n'est pré-coché
+
+Contraintes de saisie:
+. l'utilisateur doit avoir au moins 6 caractères, maximum 12 caractères
+. le mot de passe doit avoir 8 caractères
+. un profil doit avoir été choisi
+. au moins trois activités sont demandées
+. l'utilisateur a répondu à la question: "Etes-vous satisfait ?"
+
+SVP:
+- si la saisie est incorrecte, indiquez très clairement pourquoi ça ne va pas (design libre)
+- si la saisie est correct, envoyez le formulaire vers un script nommé "process.php"
+-->
+
+		<form id="le-formulaire" action="process.php" method="POST" enctype="multipart/form-data">
+
+			<!------------------------------------------------>
+			<!------------------------------------------------>
+			<fieldset>
+				<legend>Identification</legend>
+				<div>
+					<p class="red" id="err-utilisateur">Nombre de caractères entre 6 et 12!</p>
+					<p>Utilisateur</p>
+					<p>
+						<input id="user" type="text" name="user" maxlength="12" minlength="6" placeholder="utilisateur svp" required="required"/>
+					</p>
+				</div>
+
+				<div>
+					<p class="red" id="err-pass">8 caractères exactement !</p>
+					<p>Mot de passe</p>
+					<p>
+						<input id="pass" type="password" name="pass" maxlength="8" placeholder="pass svp" required="required" />
+					</p>
+				</div>
+
+				<div>
+					<p class="red" id="err-profil">Sélectionnez un profil !</p>
+					<p>Profil</p>
+					<p>
+						<select id="liste-profils" name="liste-profils">
+							<option value="-1" selected>SVP Choisir un profil</option>
+							<option value="0">Administrateur</option>
+							<option value="1">Opérateur</option>
+						</select>
+					</p>
+				</div>
+
+			</fieldset>
+
+			<!------------------------------------------------>
+			<!------------------------------------------------>
+			<fieldset>
+				<legend>Vous</legend>
+
+				<div>
+					<p class="red" id="err-activites">Sélectionnez au moins trois activités !</p>
+					<p>Activités</p>
+					<p>
+						<input type="checkbox" name="activites" value="activite1" />activite 1
+						<input type="checkbox" name="activites" value="activite2" />activite 2
+						<input type="checkbox" name="activites" value="activite3" />activite 3
+						<input type="checkbox" name="activites" value="activite4" />activite 4
+						<input type="checkbox" name="activites" value="activite5" />activite 5
+					</p>
+				</div>
+
+				<div>
+					<p class="red" id="err-vote">Il faut voter !</p>
+					<p>Vous appréciez le service ?</p>
+					<p>
+						<input type="radio" name="vote" value="non" /> non
+						<input type="radio" name="vote" value="oui" /> oui
+					</p>
+				</div>
+
+			</fieldset>
+
+			<!------------------------------------------------>
+			<!------------------------------------------------>
+			<div>
+				<p>Formulaire d'envoi de fichier :<br />
+					<input id="bt-submit" type="submit" name="monfichier" value="Envoyer" />
+				</p>
+				<p>
+
+			</div>
+
+		</form>
+
+		<!------------------------------------------------>
+		<!------------------------------------------------>
+
+		<hr />
+
+
+		<!-- <div>
+<p>
+<select id="combo">
+<option value="opt1" >option 1</option>
+
+</select>
+
+<input id="bt-add-option" type="button" value="Ajouter une option" />
+</p>
+<p></p>
+</div>
+
+</div> -->
+		<script src="js/exercice 5.js"></script>
+</body>
+
+</html>
